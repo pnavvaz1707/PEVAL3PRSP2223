@@ -15,7 +15,9 @@ public class Servidor {
     DataInputStream entrada;
     DataOutputStream salida;
     public final static File F_CLAVE_PUBLICA = new File("src/peval3prsp2223/ClavePublica.txt");
+    //    public final static File F_CLAVE_PUBLICA = new File("D:\\peval3prsp2223");
     private final File F_CLAVE_PRIVADA = new File("src/peval3prsp2223/ClavePrivada.txt");
+//    private final File F_CLAVE_PRIVADA = new File("D:\\peval3prsp2223");
 
     public void initServer() {
         try {
