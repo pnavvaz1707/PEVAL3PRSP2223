@@ -32,16 +32,16 @@ public class Cliente {
             int longitudClaveDESCifrada = claveDESCifrada.length;
 
             salida.writeInt(longitudClaveDESCifrada);
-            System.out.println("Tamaño de la clave enviado");
+//            System.out.println("Tamaño de la clave enviado");
 
             salida.write(claveDESCifrada);
-            System.out.println("Clave enviada");
+            System.out.println("Clave de comunicación enviada");
 
             byte[] mensajeCifrado = CifradorSimetricoDES.cifrarMensaje(claveDES, mensajeACifrar);
             int longitudMensajeCifrado = mensajeCifrado.length;
 
             salida.writeInt(longitudMensajeCifrado);
-            System.out.println("Tamaño del mensaje enviado");
+//            System.out.println("Tamaño del mensaje enviado");
 
             salida.write(mensajeCifrado);
             System.out.println("Mensaje enviado");

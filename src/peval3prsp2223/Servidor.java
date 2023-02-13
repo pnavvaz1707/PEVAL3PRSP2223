@@ -23,7 +23,7 @@ public class Servidor {
             cliente = new Socket();
 
             GeneradorClavesAsimetricasRSA.generarParDeClavesYGuardarEnFichero(F_CLAVE_PUBLICA, F_CLAVE_PRIVADA);
-            System.out.println("Par de claves asimétricas generadas");
+//            System.out.println("Par de claves asimétricas generadas");
 
             while (true) {
                 System.out.println("Esperando conexión...");
@@ -36,16 +36,16 @@ public class Servidor {
 
                 //Recibimos el tamaño de la clave
                 int longitudClave = entrada.readInt();
-                System.out.println("Tamaño de la clave cifrada recibido");
+//                System.out.println("Tamaño de la clave cifrada recibido");
 
                 //Recibimos la clave
                 byte[] claveCifrada = new byte[longitudClave];
                 entrada.readFully(claveCifrada, 0, claveCifrada.length);
-                System.out.println("Clave cifrada recibida");
+                System.out.println("Clave de comunicación recibida");
 
                 //Recibimos el tamaño del mensaje
                 int longitudMensaje = entrada.readInt();
-                System.out.println("Tamaño del mensaje recibido");
+//                System.out.println("Tamaño del mensaje recibido");
 
                 //Recibimos el mensaje
                 byte[] mensajeCifrado = new byte[longitudMensaje];
@@ -54,7 +54,7 @@ public class Servidor {
 
                 //Desciframos la clave recibida
                 byte[] claveDescifrada = DescifradorAsimetricoRSA.descifrarMensaje(F_CLAVE_PRIVADA, claveCifrada);
-                System.out.println("Clave descifrada");
+//                System.out.println("Clave descifrada");
 
                 //Desciframos el mensaje con la clave recibida
                 String mensajeDescifrado = new String(DescifradorSimetricoDES.descifrarFichero(claveDescifrada, mensajeCifrado));
